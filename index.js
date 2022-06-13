@@ -1,5 +1,5 @@
 let player = {
-    name: "Per",
+    name: "Epaphras",
     chips: 200
 }
 
@@ -44,9 +44,11 @@ function renderGame() {
     sumEl.textContent = "Sum: " + sum
     if (sum <= 20) {
         message = "Do you want to draw a new card?"
+        isAlive = true
     } else if (sum === 21) {
         message = "You've got Blackjack!"
         hasBlackJack = true
+        isAlive = false
     } else {
         message = "You're out of the game!"
         isAlive = false
@@ -56,7 +58,7 @@ function renderGame() {
 
 
 function newCard() {
-    if (isAlive === true && hasBlackJack === false) {
+    if (isAlive === true) {
         let card = getRandomCard()
         sum += card
         cards.push(card)
